@@ -19,6 +19,9 @@ import android.view.WindowManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.VideoView;
+import android.net.Uri;
+import android.widget.FrameLayout;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -145,6 +148,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+        if (!getPreferences(MODE_PRIVATE).getBoolean("intro_done", false)) {
+            VideoView intro = new VideoView(this);
+            intro.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            setContentView(intro);
+            try {
+                java.io.File video = new java.io.File(getCacheDir(), "totaflix_intro.mp4");
+                try (java.io.InputStream in = getAssets().open("totaflix_intro.mp4"); java.io.FileOutputStream out = new java.io.FileOutputStream(video)) {
+                    byte[] b = new byte[8192]; int n; while ((n = in.read(b)) > 0) out.write(b, 0, n);
+                }
+                intro.setVideoURI(Uri.fromFile(video));
+                intro.setOnCompletionListener(mp -> { getPreferences(MODE_PRIVATE).edit().putBoolean("intro_done", true).apply(); recreate(); });
+                intro.setOnErrorListener((mp, what, extra) -> { getPreferences(MODE_PRIVATE).edit().putBoolean("intro_done", true).apply(); recreate(); return true; });
+                intro.start();
+                return;
+            } catch (Exception e) {
+                Log.e(TAG, "Intro video error", e);
+                getPreferences(MODE_PRIVATE).edit().putBoolean("intro_done", true).apply();
+                recreate();
+                return;
+            }
+        }
         //onesignal permission
         OneSignal.promptForPushNotifications();
 
