@@ -155,8 +155,8 @@
             android:name="com.code.files.DownloadActivity"
             android:exported="false"
             android:theme="@style/AppTheme.Nobar" />
-        <activity
-        <activity
+        
+        
             android:name="com.code.files.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true"
@@ -169,4 +169,5 @@
         </activity>
     </application>
 
+</manifest>
 </manifest>
