@@ -127,8 +127,6 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" /> <!-- android:configChanges="screenLayout|screenSize|orientation" -->
         <activity
-            android:name="com.code.files.MainActivity"
-            android:exported="false"
             android:theme="@style/AppTheme.Nobar"
             android:windowSoftInputMode="adjustPan" />
         <activity
@@ -136,8 +134,6 @@
             android:exported="false"
             android:theme="@style/AppTheme.Nobar" />
         <activity
-            android:name="com.code.files.MainActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
