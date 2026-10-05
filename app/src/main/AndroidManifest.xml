@@ -136,7 +136,7 @@
             android:exported="false"
             android:theme="@style/AppTheme.Nobar" />
         <activity
-            android:name="com.code.files.SplashScreenActivity"
+            android:name="com.code.files.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true">
             <intent-filter>
