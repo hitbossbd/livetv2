@@ -170,6 +170,17 @@
             android:name="com.code.files.DownloadActivity"
             android:exported="false"
             android:theme="@style/AppTheme.Nobar" />
+        <activity
+            android:name="com.code.files.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true"
+            android:theme="@style/AppTheme.Nobar"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
