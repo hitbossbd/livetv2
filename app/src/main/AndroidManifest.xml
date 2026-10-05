@@ -127,21 +127,6 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" /> <!-- android:configChanges="screenLayout|screenSize|orientation" -->
         <activity
-            android:theme="@style/AppTheme.Nobar"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name="com.code.files.SettingsActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme.Nobar" />
-        <activity
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name="com.code.files.ItemMovieActivity"
             android:exported="false"
             android:label="@string/title_activity_item_show"
@@ -170,6 +155,7 @@
             android:name="com.code.files.DownloadActivity"
             android:exported="false"
             android:theme="@style/AppTheme.Nobar" />
+        <activity
         <activity
             android:name="com.code.files.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
